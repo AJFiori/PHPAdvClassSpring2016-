@@ -2,45 +2,25 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Lab 1 Address Form</title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
     </head>
     <body>
-        <?php
+        <a href="addAddress.php" class="btn btn-primary btn-lg btn-block">Add New Address</a>
+        <br/><br/>
+        
+            <?php
         // put your code here
         
         require_once './functions/dbconnect.php';
         require_once './functions/util.php';
-        
-        
-        $address = filter_input(INPUT_POST, 'address');
-        
-        
+ 
         $address = getAllAddress();
-        
-        if ( isPostRequest() ) {
-            
-            
-            if ( empty($address) ) {
-                $message = 'Sorry address is Empty';
-            } 
-             else if ( addPhone($address) ) {
-                $message = 'Address Added';
-                $address = '';
-                
-            }
-            
-            
-        }
-                
-                
-        include './templates/messages.html.php';
-        include './templates/AddAddress-form.html.php';
-        
-        include './templates/View-Address.html.php';
+       
+        include './views/view-address.php';
         ?>
         
         
