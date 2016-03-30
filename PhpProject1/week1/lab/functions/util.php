@@ -9,10 +9,16 @@ function isPostRequest() {
     return ( filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST' );
 }
 
+/*Checks if a request has been made */
+function isGetRequest() {
+    return ( filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'GET' );
+}
+
 function addAddress($fullname, $email, $addressline1, $city, $state, $zip, $birthday) {
     
     $db = dbconnect();
-    $stmt = $db->prepare("INSERT INTO address SET fullname = :fullname, email = :email, addressline1 = :addressline1, city = :city, state = :state, zip = :zip, birthday = :birthday");
+    
+    $stmt = $db->prepare("INSERT address values(null,:fullname,:email,:addressline1,:city,:state,:zip,:birthday)");
     $binds = array(
         ":fullname" => $fullname,
         ":email" => $email,
@@ -20,7 +26,7 @@ function addAddress($fullname, $email, $addressline1, $city, $state, $zip, $birt
         ":city" => $city,
         ":state" => $state,
         ":zip" => $zip,
-        ":birthday" => $birthday,
+        ":birthday" => $birthday
     );
     if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
         return true;

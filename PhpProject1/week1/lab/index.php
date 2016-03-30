@@ -18,6 +18,7 @@
         require_once './functions/dbconnect.php';
         require_once './functions/util.php';
  
+        
         $address = getAllAddress();
        
         include './views/view-address.php';

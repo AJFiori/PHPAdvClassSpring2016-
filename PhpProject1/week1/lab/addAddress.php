@@ -12,6 +12,7 @@ and open the template in the editor.
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="style3.css"/>
         
     </head>
     <body>
@@ -21,8 +22,10 @@ and open the template in the editor.
         
             require_once './functions/dbconnect.php';
             require_once './functions/util.php';
+           
             
             $error = array();
+            
             
             $fullname = filter_input(INPUT_POST, 'fullname');
             $email = filter_input(INPUT_POST, 'email');
@@ -34,18 +37,14 @@ and open the template in the editor.
             
                 $nameRegex = '/([a-zA-Z]|\s)+/';
 		$addressRegex = '/([a-zA-Z]|\s|[1-9])+/';
-                $cityRegex = '/([a-zA-Z]|\s|[1-9])+/';
 		$zipRegex = '/[0-9]{5}/'; 
+                
+if(isPostRequest()){
                 
             if (!is_null($fullname)){
             if (!preg_match($nameRegex, $fullname)){
             	array_push($error,"Name is invaild");
             }
-        }
-        if (!is_null($email)){
-        	if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        		array_push($error, "Email is invaild");
-        	}
         }
         if(!is_null($addressline1)){
         	if(!preg_match($addressRegex, $addressline1)){
@@ -62,7 +61,17 @@ and open the template in the editor.
             	array_push($error,"Zip is invaild");
             }
         }
-
+        
+/*Adds data into DB*/
+    if(addAddress($fullname, $email, $addressline1, $city, $state, $zip, $birthday)== true){
+        echo 'Data Added';
+    }
+    else
+    {
+        echo 'Data Not Added';
+    }
+}
+            include './Validation/email-validation.php';
             include './views/AddAddress-form.html.php';
         ?>
     </body>

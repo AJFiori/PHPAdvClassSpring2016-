@@ -1,6 +1,6 @@
 <?php if ( count($address) > 0 ) : ?>
 <h1>Addresses</h1>
-<?php foreach( $addresses as $key => $values ) : ?>
+<?php foreach( $address as $key => $values ) : ?>
     <ul>
         <li><?php echo $values['fullname']; ?> </li>
         <li><?php echo $values['email']; ?> </li>

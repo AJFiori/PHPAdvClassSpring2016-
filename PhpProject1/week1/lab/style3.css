@@ -1,4 +1,10 @@
 .error
 {
+    font-size: 10px;
     color:red;
+}
+
+#emailcheck{
+    margin: auto;
+    color: red;
 }
