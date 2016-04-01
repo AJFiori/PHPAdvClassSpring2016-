@@ -10,20 +10,24 @@
     </head>
     <body>
 
-<br />
-
 <div class="container">
-    <center>
-    <h1>Add A Address</h1>
-    <br/>
-      <?php if(count($error) !== 0): ?>
-    <?php for($eCheck = 0;$eCheck < count($error);$eCheck++):?>
-            <div class='error'><?php echo $error[$eCheck] ?></div>
-    <?php endfor ?>
-<?php endif ?>
+<center>
+    <h1>Add New Address</h1>
+    
+<!--goes through Error Message array & pushes out the message to the form -->
+    <?php if(count($errorMessage) !== 0): ?>
+        <?php for($eCheck = 0;$eCheck < count($errorMessage);$eCheck++):?>
+    <div class="error"><?php echo $errorMessage[$eCheck] ?></div>
+        <?php endfor ?>
+                
+    <?php endif ?>
+    
+<!--JS function to make success message fade -->
+                <?php include './functions/results.html.php';?>
             
+ <!--Form design -->           
     <form action="#" method="post">   
-       Full Name:&nbsp;<input name="fullname" value="<?php echo $fullname; ?>" /> <br/><br/>
+       Full Name:&nbsp;<input name="fullname" value="<?php echo $fullname;?>" /> <br/><br/>
        Email:&nbsp; <input name="email" value="<?php echo $email; ?>" /> <br /><br/>
        Address:&nbsp;<input name="addressline1" value="<?php echo $addressline1; ?>" /> <br /><br/>
        City:&nbsp;<input name="city" value="<?php echo $city; ?>" /> <br /><br/>
@@ -102,7 +106,7 @@
     </form>
     
     
-    </center>
+</center>
 </div>
     </body>
 </html>

@@ -1,10 +1,11 @@
- <div class="Error"><?php echo $results; ?></div>
+ 
+<div class="successMessage"><?php echo $successMessage; ?></div>
 
     <!-- script to have the message disappear-->      
         <script type="text/javascript">
             
             /* use this selector to grab html items by CSS selectors */
-            var message = document.querySelector('.Error');
+            var message = document.querySelector('.successMessage');
             
             /* JavaScript function that will run a function after waiting */
             setTimeout(fadeAddMessage, 1000);

@@ -9,10 +9,6 @@ function isPostRequest() {
     return ( filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST' );
 }
 
-/*Checks if a request has been made */
-function isGetRequest() {
-    return ( filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'GET' );
-}
 
 function addAddress($fullname, $email, $addressline1, $city, $state, $zip, $birthday) {
     

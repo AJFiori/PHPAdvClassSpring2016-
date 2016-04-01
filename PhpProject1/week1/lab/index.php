@@ -13,18 +13,19 @@
         <br/><br/>
         
             <?php
-        // put your code here
         
+//Connects to DB
         require_once './functions/dbconnect.php';
+
+//Connects to all functions in util
         require_once './functions/util.php';
  
-        
+//Calls the getAllAddress functions
         $address = getAllAddress();
        
+//Populates all info from database into a table so you can view on main page
         include './views/view-address.php';
         ?>
-        
-        
-        
+
     </body>
 </html>

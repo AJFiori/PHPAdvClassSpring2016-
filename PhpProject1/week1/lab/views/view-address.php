@@ -10,11 +10,12 @@
     <body>
               
          <?php
+//Calls the getAllAddress functions
                $address = getAllAddress();
         ?>
         <br/><br/>
         
- <!--writes out the list-->
+ <!--writes out the list for header of table-->
     <center>
         <table class="table table-striped">
             <thead>
@@ -26,8 +27,7 @@
                     <th>Zip Code:</th> 
                     <th>Birthday:</th>
             </thead>
-            
-        
+<!-- Takes info from DB and inserts it into the rows of the table -->        
         <?php foreach ($address as $row): ?>
             <tr>
                 <td><?php echo $row['fullname']."";?></td>
