@@ -13,7 +13,6 @@
         <br/><br/>
         
             <?php
-        
 //Connects to DB
         require_once './functions/dbconnect.php';
 

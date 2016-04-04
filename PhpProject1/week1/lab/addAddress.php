@@ -41,8 +41,8 @@ and open the template in the editor.
 //Loops through error array for each field
             $errorMessage = array();
             
-//Checks if its a 1 or 2, if all fields are filled(1) submits to database, else doesn't submit
-            $check = 1;
+//Checks if its a true or false, if all fields are filled(true) submits to database, else doesn't submit
+            $check = true;
             
 //When all feilds are filled pushes out success message & using JS to fade out
             $successMessage ="";
@@ -55,69 +55,69 @@ and open the template in the editor.
                 if ( empty($fullname) ) 
                 {
                     $errorMessage[] = 'Please provide a Name<br/>';
-                    $check = 2;
+                    $check = false;
                 }
                 if ( empty($email) ) 
                 {
                     $errorMessage[] = 'Please provide an Email Address<br/>';
-                    $check = 2;
+                    $check = false;
                 }
                 if ( empty($addressline1) ) 
                 {
                     $errorMessage[] = 'Please provide an Address<br/>';
-                    $check = 2;
+                    $check = false;
                 } 
                 if ( empty($city) ) 
                 {
                     $errorMessage[] = 'Please provide a City<br/>';
-                    $check = 2;
+                    $check = false;
                 }
                 if ($state === '')
                 {
                     $errorMessage[] = 'Please select a State<br/>';
-                    $check = 2;
+                    $check = false;
                 }                
                 if ( empty($zip) ) 
                 {
                     $errorMessage[] = 'Please provide an Zip Code<br/>';
-                    $check = 2;
+                    $check = false;
                 }            
                 if ( empty($birthday) ) 
                 {
                     $errorMessage[] = 'Please provide an Birthday<br/>';
-                    $check = 2;
+                    $check = false;
                 }       
 //regex for all fields
                 if ( !preg_match($nameRegex, $fullname) ) 
                 {
                     $errorMessage[] = 'Name Is Not valid<br/>';
-                    $check = 2;
+                    $check = false;
                 }
                 
                 if ( filter_var($email, FILTER_VALIDATE_EMAIL) == false ) 
                 {
                     $errorMessage[] = 'Email Is Not valid<br/>';
-                    $check = 2;
+                    $check = false;
                 }
                 
                 if ( !preg_match($addressRegex, $addressline1) ) 
                 {
                     $errorMessage[] = 'Address Is Not valid<br/>';
-                    $check = 2;
+                    $check = false;
                 } 
                 if ( !preg_match($nameRegex, $city) ) 
                 {
                     $errorMessage[] = 'City Is Not valid<br/>';
-                    $check = 2;
+                    $check = false;
                 }
                                  
                 if ( !preg_match($zipRegex, $zip) ) 
                 {
                     $errorMessage[] = 'Zip Code Is Not valid<br/>';
-                    $check = 2;
+                    $check = false;
                 } 
 //If true submits to database
-                if ($check === 1)
+                if ($check === true)
                 {
                     if ( addAddress($fullname, $email, $addressline1, $city, $state, $zip, $birthday ) ) 
                     {
