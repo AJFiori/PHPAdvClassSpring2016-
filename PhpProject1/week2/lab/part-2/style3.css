@@ -1,0 +1,14 @@
+.error
+{
+    font-size: 12px;
+    color:red;
+}
+.successMessage{
+  font-size: 20px;
+  color:lightgreen;  
+}
+
+.isDeleted{
+  font-size: 20px;
+  color:red;  
+}
