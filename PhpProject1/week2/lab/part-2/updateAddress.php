@@ -49,7 +49,6 @@
         return true;
     }
     return false;
-                
                 if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
                    $results = 'Record updated';
                    
@@ -65,10 +64,8 @@
                 if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
                    $results = $stmt->fetch(PDO::FETCH_ASSOC);
                 }
-                if ( !isset($address_id) ) {
-                    die('Record not found');
-                }
                
+            }
                 $fullname = $results['fullname'];
                 $email = $results['email'];
                 $addressline1 = $results['addressline1'];
@@ -76,9 +73,7 @@
                 $state = $results['state'];
                 $zip = $results['zip'];
                 $birthday = $results['birthday'];
-            }
 
-        
 //Calls the Address form
             include './views/updateAddress-form.html.php';
     ?>

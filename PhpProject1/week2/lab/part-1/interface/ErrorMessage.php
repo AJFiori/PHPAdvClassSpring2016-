@@ -7,15 +7,11 @@
  */
 
 /**
+ * Description of ErrorMessage
  *
  * @author Anthony J. Fiori
  */
-interface Imessage {
-    //put your code here
-function addMessage($key, $msg);
+class ErrorMessage extends Message{}
 
-function removeMessage($key);
 
-function getAllMessages();
-
-}
+?>
