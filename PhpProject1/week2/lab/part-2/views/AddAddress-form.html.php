@@ -9,21 +9,33 @@
         <link rel="stylesheet" href="../style3.css"/>
     </head>
     <body>
+        <a href="../index.php" class="btn btn-primary btn-lg btn-block">Go Back</a>
 
 <div class="container">
 <center>
     <h1>Add New Address</h1>
     
 <!--goes through Error Message array & pushes out the message to the form 
--->    <?php if(count($errorMessage) !== 0): ?>
+   <?php if(count($errorMessage) !== 0): ?>
         <?php for($eCheck = 0;$eCheck < count($errorMessage);$eCheck++):?>
     <div class="error">//<?php echo $errorMessage[$eCheck] ?></div>
         <?php endfor ?>
                 
-    <?php endif ?>
+    <?php endif ?>--> 
     
 <!--JS function to make success message fade -->
-                <?php include './functions/results.html.php';?>
+<!--<?php include './functions/results.html.php';?>-->
+<?php
+        include '../models/message.html.php';
+//Calling varibles from DB
+            $fullname = filter_input(INPUT_POST, 'fullname');
+            $email = filter_input(INPUT_POST, 'email');
+            $addressline1 = filter_input(INPUT_POST, 'addressline1');
+            $city = filter_input(INPUT_POST, 'city');
+            $state = filter_input(INPUT_POST, 'state');
+            $zip = filter_input(INPUT_POST, 'zip');
+            $birthday = filter_input(INPUT_POST, 'birthday');
+            ?>
             
  <!--Form design -->           
     <form action="#" method="post">   
@@ -104,7 +116,6 @@
        
        <input type="submit" value="submit" class="btn btn-primary" /> 
     </form>
-    
     
 </center>
 </div>
