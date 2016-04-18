@@ -28,7 +28,7 @@
                     <th>Birthday:</th>
             </thead>
 <!-- Takes info from DB and inserts it into the rows of the table -->        
-        <?php foreach ($address as $row): ?>
+        <?php foreach ($addresses as $row): ?>
             <tr>
                 <td><?php echo $row['fullname']."";?></td>
                 <td><?php echo $row['email']."";?></td>

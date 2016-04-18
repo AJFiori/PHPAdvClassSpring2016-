@@ -57,7 +57,7 @@ public function cityIsValid($city) {
      * @return boolean
      */
 public function zipIsValid($zip) {
-        return ( preg_match("/([a-zA-Z]|\s)+/", $zip) );
+        return ( preg_match("/^\d{5}(?:[-\s]\d{4})?$/", $zip) );
     }
     
    
