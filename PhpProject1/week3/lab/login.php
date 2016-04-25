@@ -79,17 +79,6 @@
         }
 
      ?>
-    <center>
-        <div>
-            <h3>Log in</h3>
-            <form action="#" method="post">   
-              Email: <br /><input name="email"/> <br /><br />
-              Password: <br /><input name="password" type="password" /> <br /><br />
-
-               <input type="submit" value="Submit" class="btn btn-primary" />
-               <a href="./index.php" class="btn btn-primary">Go Back</a>
-            </form><br />
-        </div>
-    </center>
+    <?php include './forms/login-form.php'; ?>
     </body>
 </html>

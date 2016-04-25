@@ -1,5 +1,5 @@
 <?php if(isset($message)) : ?>
-
+<center>
 <p class="bg-success">
 
 <?php 
@@ -12,5 +12,5 @@
 ?>
 
 </p>
-
+</center>
 <?php endif; ?>

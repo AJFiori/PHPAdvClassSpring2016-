@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>SignUp Page</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    </head>
-    <body>
+
     <?php 
      	session_start();
 
@@ -71,18 +64,5 @@
         }
 
      ?>
-    <center>
-        <div>
-            <h3>Create A New Account</h3>
-            <form action="#" method="post">   
-              Email: <br /><input name="email" value="<?php echo $values['email'] ?>" /> <br /><br />
-              Password: <br /><input name="password" type="password" /> <br /><br />
-              Confirm Password: <br /><input name="confpassword" type="password" /> <br /><br />
-
-               <input type="submit" value="Submit" class="btn btn-primary" />
-               <a href="./index.php" class="btn btn-primary">Go Back</a>
-            </form><br />
-        </div>
-    </center>
-    </body>
-</html>
+    <?php include './forms/signup-form.php'; ?>
+  

@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Admin Page</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    </head>
-    <body>
+
     <?php 
      	session_start();
 
@@ -25,14 +18,4 @@
         }
 
      ?>
-    <center>
-        <div>
-            <h3>Admin Page</h3>
-            <form action="#" method="post">   
-              <input type="submit" value="Log Out" class="btn btn-primary" />
-              <a href="./index.php" class="btn btn-primary">Go Back</a>
-            </form><br />
-        </div>
-    </center>
-    </body>
-</html>
+<?php include'./forms/admin-form.php';?>
