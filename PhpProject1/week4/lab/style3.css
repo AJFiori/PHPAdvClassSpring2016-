@@ -1,0 +1,29 @@
+img
+{
+   width:25%;
+   heigh:25%;
+}
+
+.uploadMessage
+{
+  font-size:20px;
+  color:Green;
+}
+
+.delete{
+  font-size:20px;
+  color:red;
+}
+
+
+/*
+      
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 25, 2016, 7:45:59 PM
+    Author     : Anthony J. Fiori
+*/
+
