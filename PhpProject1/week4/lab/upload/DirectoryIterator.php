@@ -37,13 +37,15 @@
           
         ?>
         
-        <?php foreach ($directory as $fileInfo) : ?>        
+        <?php
+        $counter = 1;
+        foreach ($directory as $fileInfo) : ?>        
             <?php if ( $fileInfo->isFile() ) : ?>
         
-        <?php // if(file_exists($filename)):?>
-            <ol>
-            <li><br/>
-                <img src="<?php echo $fileInfo->getPathname(); ?>"/></li>
+    <center>
+               <br/><?php echo($counter -2);?><br/>
+                
+                <img src="<?php echo $fileInfo->getPathname(); ?>"/>
                 <p><?php echo $fileInfo->getFilename(); ?></p>
                 <p>uploaded on <?php echo date("l F j, Y, g:i a", $fileInfo->getMTime()); ?></p>
                 <p>This file is <?php echo $fileInfo->getSize(); ?> byte's</p>
@@ -53,11 +55,11 @@
                     echo '<input type="submit" value="Delete image" class="btn btn-danger" />';
                     echo '</form>';
                    ?>
-            </ol>
+                <br/>
+    </center>       
         
-        <?php// endif;?>
             <?php endif; ?>
-        <?php endforeach; ?>
+        <?php $counter++; endforeach; ?>
         
         
     </body>

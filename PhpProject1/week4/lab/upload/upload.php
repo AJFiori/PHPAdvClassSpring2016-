@@ -13,18 +13,21 @@
          * make sure php_fileinfo.dll extension is enable in php.ini
          */
 
-        class Filehandler {
+class Filehandler {
 
-            function upLoad($keyName) {
+    function upLoad($keyName) 
+        {
 
                 // Undefined | Multiple Files | $_FILES Corruption Attack
                 // If this request falls under any of them, treat it invalid.
-               if (!isset($_FILES[$keyName]['error']) || is_array($_FILES[$keyName]['error'])) {
+            if (!isset($_FILES[$keyName]['error']) || is_array($_FILES[$keyName]['error'])) 
+                {
                     throw new RuntimeException('<center>Invalid parameters.</center>');
                 }
 
                 // Check $_FILES['upfile']['error'] value.
-                switch ($_FILES[$keyName]['error']) {
+            switch ($_FILES[$keyName]['error']) 
+                {
                     case UPLOAD_ERR_OK:
                         break;
                     case UPLOAD_ERR_NO_FILE:
