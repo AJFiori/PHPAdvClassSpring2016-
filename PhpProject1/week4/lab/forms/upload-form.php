@@ -18,7 +18,6 @@
             <input type="submit" value="Send File" class="btn btn-primary" />
             <a href="DirectoryIterator.php" value="SignUP" class="btn btn-primary">View All</a>
         </form>
-    </center>
-       
+    </center> 
     </body>
 </html>
