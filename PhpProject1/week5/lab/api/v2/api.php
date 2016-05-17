@@ -28,19 +28,21 @@ try {
      * But in this example we will just code it out.
      * 
      */
-    if ( 'address' === $resource ) {
+    if ( 'corps' === $resource ) {
         
-        $resourceData = new AddressResoruce();
+        $resourceData = new CorpResoruce();
+        var_dump($serverData['id']);
         
-        if ( 'GET' === $verb ) {
+        if ( 'GET' === $verb ) 
+        {
             
-            if ( NULL === $id ) {
+            if ( NULL === $serverData['id'] ) {
                 
                 $restServer->setData($resourceData->getAll());                           
                 
             } else {
                 
-                $restServer->setData($resourceData->get($id));
+                $restServer->setData($resourceData->get($serverData['id']));
                 
             }            
             
@@ -50,10 +52,10 @@ try {
             
 
             if ($resourceData->post($serverData)) {
-                $restServer->setMessage('Address Added');
+                $restServer->setMessage('Corporation Added');
                 $restServer->setStatus(201);
             } else {
-                throw new Exception('Address could not be added');
+                throw new Exception('Corporation could not be added');
             }
         
         }
@@ -61,8 +63,32 @@ try {
         
         if ( 'PUT' === $verb ) {
             
-            if ( NULL === $id ) {
-                throw new InvalidArgumentException('Address ID ' . $id . ' was not found');
+            if ( NULL === $serverData['id'] ) {
+                throw new InvalidArgumentException('Corporation ID ' . $serverData['id'] . ' was not found');
+            }
+            else
+            {
+                if($resourceData->put($serverData))
+                {
+                    $restServer->setMessage('Corporation Updated');
+                    $restServer->setStatus(201);
+                }
+            }
+            
+        }
+
+        if ( 'DELETE' === $verb ) {
+            
+            if ( NULL === $serverData['id'] ) {
+                throw new InvalidArgumentException('Corporation ID ' . $serverData['id'] . ' was not found');
+            }
+            else
+            {
+                if($resourceData->delete($serverData['id']))
+                {
+                    $restServer->setMessage('Corporation Deleted');
+                    $restServer->setStatus(201);
+                }
             }
             
         }

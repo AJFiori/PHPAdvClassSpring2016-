@@ -49,5 +49,15 @@ class AddressResoruce extends DB implements IRestModel {
         } 
         return false;
     }
+
+    function put($serverData)
+    {
+       
+    }
+    
+    function delete($id)
+    {
+       
+    }
     
 }
