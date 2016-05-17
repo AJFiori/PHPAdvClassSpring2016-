@@ -28,7 +28,8 @@ try {
      * But in this example we will just code it out.
      * 
      */
-    if ( 'corps' === $resource ) {
+    if ( 'corps' === $resource ) 
+        {
         
         $resourceData = new CorpResoruce();
         var_dump($serverData['id']);
