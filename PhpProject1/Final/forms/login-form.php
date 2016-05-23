@@ -23,7 +23,7 @@ and open the template in the editor.
               Password: <br /><input name="password" type="password" /> <br /><br />
 
                <input type="submit" value="Submit" class="btn btn-primary" />
-               
+               <a href="signup.php" value="SignUP" class="btn btn-primary">Sign Up</a>
             <div>
             <p><?php if(!empty($username)) { echo "Signed in as: " . $username; } else { echo "Not Signed in"; } ?></p>
             </div> 

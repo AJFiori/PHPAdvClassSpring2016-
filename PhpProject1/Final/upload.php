@@ -125,8 +125,6 @@ try {
     imagecopyresampled($image_p, $rImg, 0, 0, 0, 0, $max_width, $max_height, $image_width, $image_height);
 
 
-
-
     $memetop = filter_input(INPUT_POST, 'memetop');
     $memebottom = filter_input(INPUT_POST, 'memebottom');
 //Font Color (white in this case)
@@ -153,7 +151,6 @@ try {
 //Writting the picture
         imagestring($image_p, 5, $xPosBottom, $yPos, $memebottom, $textcolor);
     }
-
 
 
     switch ($ext) {

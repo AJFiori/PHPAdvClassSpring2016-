@@ -25,6 +25,7 @@
         <div>
             <p><?php if(!empty($username)) { echo "Signed in as: " . $username; } else { echo "Not Signed in"; } ?></p>
         </div>
+        <?php include'./forms/view-all-form.php'; ?>
 </center> 
     </body>
 </html>
