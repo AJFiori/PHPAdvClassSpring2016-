@@ -20,6 +20,10 @@ and open the template in the editor.
 
                <input type="submit" value="Submit" class="btn btn-primary" />
                
+            <div>
+            <p><?php if(!empty($username)) { echo "Signed in as: " . $username; } else { echo "Not Signed in"; } ?></p>
+            </div>
+               
             </form><br />
         </div>
     </center>

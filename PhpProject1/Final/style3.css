@@ -27,3 +27,14 @@ input
      float:right;
 
  }
+ 
+   .meme 
+   {
+            width: 300px; 
+            border: 1px solid silver;
+            padding-right: 0.5em;
+            text-align: center;
+            margin: 0.5em;
+            float: right;
+            
+  }

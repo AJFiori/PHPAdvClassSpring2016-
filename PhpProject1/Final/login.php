@@ -7,11 +7,11 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="style3.css">
     </head>
     <body>
     <?php 
-        session_start();
-
+       
         if(isset($_SESSION['username'])) $username = $_SESSION['username'];
 
     	require_once './autoload.php';
@@ -82,6 +82,7 @@
 
      ?>
     <?php include './forms/login-form.php'; ?>
+     <?php include './forms/view-all-form.php'; ?>
 
     </body>
 </html>

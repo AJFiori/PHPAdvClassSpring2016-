@@ -19,7 +19,7 @@
 <center>  
     <a href="login.php" value="Login" class="btn btn-primary">Login</a>
     <a href="signup.php" value="SignUP" class="btn btn-primary">Sign Up</a>
-    <a href="view.php" value="ViewMeme" class="btn btn-primary">View Your Meme's</a>
+    
         <br/><br/>
 
         <div>

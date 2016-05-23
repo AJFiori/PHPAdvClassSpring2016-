@@ -7,22 +7,9 @@
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="style3.css">
         <title>View Images</title>
     
-        <style>
-            .meme {
-                width: 300px; 
-                border: 1px solid silver;
-                padding: 0.5em;
-                text-align: center;
-                margin: 0.5em;
-                vertical-align: middle;
-                
-            }
-
-
-
-        </style>
     
     </head>
     <body>
