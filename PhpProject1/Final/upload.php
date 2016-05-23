@@ -39,6 +39,8 @@ try {
     if ($_FILES['upfile']['size'] > 10000000) {
         throw new RuntimeException('Exceeded filesize limit.');
     }
+    
+
 
 // DO NOT TRUST $_FILES['upfile']['mime'] VALUE !!
 // Check MIME Type by yourself.
@@ -208,6 +210,7 @@ $response = array(
     "message" => $message,
     "location" => $location
 );
+
 
 echo json_encode($response);
 die();

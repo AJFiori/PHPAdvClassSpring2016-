@@ -32,6 +32,7 @@
             <div class="meme"> 
                 <img src="<?php echo $path; ?>" /> <br />
                 <?php echo date("l F j, Y, g:i a", $key); ?>
+                <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Hello%20world">Tweet It!</a>
                 <!-- Place this tag where you want the share button to render. -->
                 <div class="g-plus" data-action="share" data-href="<?php echo $path; ?>"></div> 
             </div>
@@ -42,7 +43,8 @@
 
         <!--<p><a href="memeIndex.php">Home</a></p>-->
         <!-- Place this tag in your head or just before your close body tag. -->
-        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <!--<script src="https://apis.google.com/js/platform.js" async defer></script>-->
+
 
     </body>
 </html>
