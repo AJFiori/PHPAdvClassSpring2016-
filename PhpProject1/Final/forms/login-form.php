@@ -11,6 +11,10 @@ and open the template in the editor.
         <title>login</title>
     </head>
     <body>
+        <cetner>
+            <h1>Welcome to Meme Town</h1>
+        </cetner>
+        <br/><br/>
         <center>
         <div>
             <h3>Log in</h3>
@@ -22,8 +26,7 @@ and open the template in the editor.
                
             <div>
             <p><?php if(!empty($username)) { echo "Signed in as: " . $username; } else { echo "Not Signed in"; } ?></p>
-            </div>
-               
+            </div> 
             </form><br />
         </div>
     </center>

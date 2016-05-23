@@ -13,6 +13,7 @@
 
     </head>
     <body>
+             
         <p id='logout'>
             <a href="admin.php" value="Admin" class="btn btn-danger">Log Out</a>
         </p>

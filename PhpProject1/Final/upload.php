@@ -96,7 +96,6 @@ try {
     }
 
 
-
     $image_info = getimagesize($_FILES["upfile"]["tmp_name"]);
 
     if (false === $image_info) {

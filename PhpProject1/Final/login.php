@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="style3.css">
     </head>
     <body>
-    <?php 
+         <?php 
        
         if(isset($_SESSION['username'])) $username = $_SESSION['username'];
 
