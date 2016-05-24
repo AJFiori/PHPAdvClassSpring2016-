@@ -14,19 +14,29 @@ and open the template in the editor.
         <cetner>
             <h1>Welcome to Meme Town</h1>
         </cetner>
-        <br/><br/>
+        <br/>
         <center>
         <div>
+             <?php if(!empty($username)) : ?>
+            <p>Signed in as: <?php echo $username; ?></p>
             <h3>Log in</h3>
+            <a href="../accountPage.php" >Your Account</a><br/>
+            <a href="../logout.php">Log Out</a><br/>
+
+            <?php else : ?>
+            <p>Not Signed in</p>
+
+            <a href="../login.php">Log in</a><br/>
+            <a href="../signup.php">Sign UP</a><br/>
+            <?php endif; ?>
+            
             <form action="#" method="post">   
               Email: <br /><input name="email"/> <br /><br />
               Password: <br /><input name="password" type="password" /> <br /><br />
 
                <input type="submit" value="Submit" class="btn btn-primary" />
                <a href="signup.php" value="SignUP" class="btn btn-primary">Sign Up</a>
-            <div>
-            <p><?php if(!empty($username)) { echo "Signed in as: " . $username; } else { echo "Not Signed in"; } ?></p>
-            </div> 
+            
             </form><br />
         </div>
     </center>

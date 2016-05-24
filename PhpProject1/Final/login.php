@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>login Page</title>
-            <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="style3.css">
-    </head>
-    <body>
-         <?php 
-       
+<head>
+    <meta charset="UTF-8">
+    <title>Meme Town Log In</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <?php 
+        session_start();
+
         if(isset($_SESSION['username'])) $username = $_SESSION['username'];
 
     	require_once './autoload.php';
 
-    	$userIDAO = new PasswordIDAO();
+    	$PasswordIDAO = new PasswordIDAO();
     	$validator = new Validation();
     	$util = new Util();
 
@@ -26,18 +24,16 @@
         {    
             $message = array();
 
-            // Checks fields if they're empty and valid
-        if ($validator->valueIsEmpty($values['email']))
+            // Checking if empty and valid  
+            if ($validator->valueIsEmpty($values['email']))
             {
                 array_push($message,'Sorry email is empty');
             }
-        
-        elseif(!$validator->emailIsValid($values['email']))
+            elseif(!$validator->emailIsValid($values['email']))
             {
                 array_push($message,'Sorry email is not valid');
             }
-            
-        elseif(!$userIDAO->exsistingEmail($values['email']))
+            elseif(!$PasswordIDAO->exsistingEmail($values['email']))
             {
                 array_push($message,'Sorry email is not registered');
             }
@@ -46,16 +42,15 @@
             {
                 array_push($message,'Sorry password is empty');
             } 
-            
-        elseif(!$validator->valueIsValid($values['password']))
+            elseif(!$validator->valueIsValid($values['password']))
             {
                 array_push($message,'Sorry password is not valid');
             }
 
-            // Adds the User
-        if(count($message) === 0)
+            // Add user
+            if(count($message) === 0)
             {
-                $results = $userIDAO->viewLogin($values);
+                $results = $PasswordIDAO->readLogin($values);
 
                 if(count($results) > 0)
                 {   
@@ -67,22 +62,19 @@
                         $_SESSION['username'] = $results[0]['email'];
                         $_SESSION['user_id'] = $results[0]['user_id'];
                         $username = $_SESSION['username'];
-                        header("Location: memeIndex.php"); 
-                           
+                        header("Location: ./index.php");
                     }
                     else 
                     {
                         array_push($message,'Email or password were incorrect');
                     }
-                    
                 }
             }
+
             include './views/errors.php';
         }
 
      ?>
-    <?php include './forms/login-form.php'; ?>
-     <?php include './forms/view-all-form.php'; ?>
-
-    </body>
+        <?php include './forms/login-form.php'; ?>
+</body>
 </html>

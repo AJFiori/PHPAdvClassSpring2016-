@@ -13,8 +13,11 @@
     
     </head>
     <body>
-        <p><a href="memeIndex.php" class="btn btn-primary btn-lg btn-block">Home</a></p>
+        <p><a href="accountPage.php" class="btn btn-primary btn-lg btn-block">Home</a></p>
         <?php
+        include './autoload.php';
+        $imageUp = new PhotoIDAO();
+        
         $files = array();
         $directory = '.' . DIRECTORY_SEPARATOR . 'uploads';
         $dir = new DirectoryIterator($directory);
@@ -23,28 +26,19 @@
                 $files[$fileInfo->getMTime()] = $fileInfo->getPathname();
             }
         }
-
         krsort($files);
-//ksort($files);
 
         foreach ($files as $key => $path):
             ?> 
             <div class="meme"> 
                 <img src="<?php echo $path; ?>" /> <br />
                 <?php echo date("l F j, Y, g:i a", $key); ?>
-                <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Hello%20world">Tweet It!</a>
+                <span class='st_twitter_large' displayText='Tweet'></span>
                 <!-- Place this tag where you want the share button to render. -->
                 <div class="g-plus" data-action="share" data-href="<?php echo $path; ?>"></div> 
             </div>
 
         <?php endforeach; ?>
-
-
-
-        <!--<p><a href="memeIndex.php">Home</a></p>-->
-        <!-- Place this tag in your head or just before your close body tag. -->
-        <!--<script src="https://apis.google.com/js/platform.js" async defer></script>-->
-
 
     </body>
 </html>

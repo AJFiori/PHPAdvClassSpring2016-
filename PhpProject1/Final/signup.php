@@ -1,12 +1,14 @@
 
     <?php 
+        require_once './autoload.php';
+        
      	session_start();
 
         if(isset($_SESSION['username'])) $username = $_SESSION['username'];
 
     	require_once './autoload.php';
 
-    	$userIDAO = new PasswordIDAO();
+    	$passwordIDAO = new PasswordIDAO();
     	$validator = new Validation();
     	$util = new Util();
 
@@ -27,7 +29,7 @@
                 array_push($message,'Sorry email is not valid');
             }
             
-        elseif($userIDAO->exsistingEmail($values['email']))
+        elseif($passwordIDAO->exsistingEmail($values['email']))
             {
                 array_push($message,'Sorry email is already registered');
             }
@@ -54,7 +56,7 @@
             // Add user
         if(count($message) === 0)
             {
-                if($userIDAO->create($values))
+                if($passwordIDAO->create($values))
                 {
                     array_push($message,'Succesfully Added');
                 }

@@ -1,9 +1,7 @@
 <?php 
 
-/**
-* 
-*/
-class PasswordIDAO extends DB implements IDAO 
+
+class PhotoIDAO extends DB implements IDAO 
 {
     function __construct() 
     { 
@@ -16,7 +14,7 @@ class PasswordIDAO extends DB implements IDAO
     function readAll() 
     {
         $db = $this->getDb();
-        $stmt = $db->prepare("SELECT * FROM users");
+        $stmt = $db->prepare("SELECT * FROM photos");
 
         $results = array();
         if ($stmt->execute() && $stmt->rowCount() > 0) {
@@ -30,11 +28,12 @@ class PasswordIDAO extends DB implements IDAO
     {   
         $date = date("Y-m-d H:i:s");
         $db = $this->getDb();
-        $stmt = $db->prepare("INSERT INTO users SET email = :email, password = :password, created = :created");
+        $stmt = $db->prepare("INSERT INTO photos SET user_id = :user_id, filename = :filename, title = :title, created = :created");
         
         $binds = array(
-        ":email" => $values['email'],
-        ":password" => $values['password'],
+        ":user_id" => $values['user_id'],
+        ":filename" => $values['filename'],
+        ":title" => $values['title'],
         ":created" => $date
         );
 
@@ -46,12 +45,12 @@ class PasswordIDAO extends DB implements IDAO
     }
     
     function read($id) 
-    { 
+    {
         $db = $this->getDb();
-        $stmt = $db->prepare("SELECT * FROM users WHERE id = :id");
+        $stmt = $db->prepare("SELECT * from photos WHERE user_id = :user_id");
 
         $binds = array(
-        ":id" => $id
+        ":user_id" => $id
         );
 
         $results = array();
@@ -59,33 +58,18 @@ class PasswordIDAO extends DB implements IDAO
            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
         
-        return $results;
+        return $results; 
     }
-
-    function readLogin($values) 
-    { 
+    
+    function delete($id) 
+    {
         $db = $this->getDb();
-        $stmt = $db->prepare("SELECT * from users WHERE email = :email");
-
+        $stmt = $db->prepare("DELETE FROM photos WHERE photo_id = :photo_id");
+        
         $binds = array(
-        ":email" => $values['email']
+        ":photo_id" => $id
         );
 
-        $results = array();
-        if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
-           $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        }
-        
-        return $results;
-    }
-
-    function exsistingEmail($email){
-        
-        $db = $this->getDb();
-        $stmt = $db->prepare("SELECT * FROM users where email = :email");
-        $binds = array(
-            ":email" => $email          
-        );
         if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
             return true;
         }
@@ -93,12 +77,22 @@ class PasswordIDAO extends DB implements IDAO
         return false;
     }
     
-    function update($values) { }
-    
-    function delete($id) { }
+    function update($values) 
+    { 
+        $db = $this->getDb();
+        $stmt = $db->prepare("UPDATE photos SET views = :views WHERE photo_id = :photo_id");
+        
+        $binds = array(
+        ":views" => $values['views'],
+        ":photo_id" => $values['photo_id']
+        );
+
+        if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
+            return true;
+        }
+
+        return false;
+    }
 }
-
-
-
 
  ?>
